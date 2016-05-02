@@ -9,9 +9,8 @@ import android.widget.EditText;
 
 import com.epicodus.discussionforum.Constants;
 import com.epicodus.discussionforum.R;
-import com.epicodus.discussionforum.models.ForumPost;
+import com.epicodus.discussionforum.models.Post;
 import com.firebase.client.Firebase;
-import com.firebase.client.ValueEventListener;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -41,9 +40,9 @@ public class NewPostActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         if (v == mSubmitButton) {
-           ForumPost newForumPost = new ForumPost(mTitleEditText.getText().toString(), mAuthorEditText.getText().toString(), mBodyEditText.getText().toString());
+           Post newPost = new Post(mTitleEditText.getText().toString(), mAuthorEditText.getText().toString(), mBodyEditText.getText().toString());
             Firebase ref = new Firebase(Constants.FIREBASE_URL_POSTS);
-            ref.push().setValue(newForumPost);
+            ref.push().setValue(newPost);
             Intent backToMain = new Intent(NewPostActivity.this, MainActivity.class);
             startActivity(backToMain);
         }
