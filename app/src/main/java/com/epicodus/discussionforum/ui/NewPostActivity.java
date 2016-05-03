@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.epicodus.discussionforum.Constants;
 import com.epicodus.discussionforum.R;
@@ -25,6 +27,7 @@ public class NewPostActivity extends AppCompatActivity implements View.OnClickLi
     @Bind(R.id.authorEditText) EditText mAuthorEditText;
     @Bind(R.id.bodyEditText) EditText mBodyEditText;
     @Bind(R.id.submitButton) Button mSubmitButton;
+    @Bind(R.id.spinner) Spinner mSpinner;
 
 
     @Override
@@ -34,7 +37,10 @@ public class NewPostActivity extends AppCompatActivity implements View.OnClickLi
         ButterKnife.bind(this);
 
         mSubmitButton.setOnClickListener(this);
-
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.categories, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mSpinner.setAdapter(adapter);
     }
 
     @Override
