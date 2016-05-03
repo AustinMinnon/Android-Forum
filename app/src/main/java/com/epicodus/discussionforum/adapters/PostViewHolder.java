@@ -8,6 +8,9 @@ import android.widget.TextView;
 
 import com.epicodus.discussionforum.R;
 import com.epicodus.discussionforum.models.Post;
+//import com.epicodus.discussionforum.ui.PostDetailActivity;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
@@ -17,7 +20,7 @@ import butterknife.ButterKnife;
 public class PostViewHolder extends RecyclerView.ViewHolder {
     @Bind(R.id.titleTextView) TextView mTitleTextView;
     @Bind(R.id.authorTextView) TextView mAuthorTextView;
-    @Bind(R.id.bodyTextView) TextView mBodyTextView;
+//    @Bind(R.id.bodyTextView) TextView mBodyTextView;
 
     private Context mContext;
     private ArrayList<Post> mPosts = new ArrayList<>();
@@ -27,22 +30,22 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
         ButterKnife.bind(this, itemView);
         mContext = itemView.getContext();
         mPosts = posts;
-        itemView.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                int itemPosition = getLayoutPosition();
-                Intent intent = new Intent(mContext, PostDetailActivity.class);
-                intent.putExtra("position", itemPosition + "");
-                intent.putExtra("posts", Parcels.wrap(mPosts));
-                mContext.startActivity(intent);
-            }
-        });
+//        itemView.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v){
+//                int itemPosition = getLayoutPosition();
+//                Intent intent = new Intent(mContext, PostDetailActivity.class);
+//                intent.putExtra("position", itemPosition + "");
+//                intent.putExtra("posts", Parcels.wrap(mPosts));
+//                mContext.startActivity(intent);
+//            }
+//        });
     }
 
-    public void bindRestaurant(Post post) {
+    public void bindPost(Post post) {
 
         mTitleTextView.setText(post.getTitle());
-        mAuthorTextView.setText(post.getBody());
-        mBodyTextView.setText(post.getAuthor());
+        mAuthorTextView.setText(post.getAuthor());
+//        mBodyTextView.setText(post.getAuthor());
     }
 }

@@ -10,10 +10,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.epicodus.discussionforum.Constants;
 import com.epicodus.discussionforum.R;
-import com.epicodus.discussionforum.adapters.PostListAdapter;
+import com.epicodus.discussionforum.adapters.FirebasePostListAdapter;
 import com.epicodus.discussionforum.adapters.PostViewHolder;
 import com.epicodus.discussionforum.models.Post;
+import com.firebase.client.Firebase;
+import com.firebase.client.Query;
 
 import java.util.ArrayList;
 
@@ -22,28 +25,33 @@ import butterknife.ButterKnife;
 import butterknife.OnCheckedChanged;
 
 public class ViewPostsActivity extends AppCompatActivity {
-
-@Bind(R.id.recyclerView)
-    RecyclerView mRecyclerView;
-    private PostListAdapter mAdapter;
+    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
+    private Query mQuery;
+    private Firebase mFirebasePostRef;
+    private FirebasePostListAdapter mAdapter;
     public ArrayList<Post> mPosts = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_posts);
         ButterKnife.bind(this);
+        mFirebasePostRef = new Firebase(Constants.FIREBASE_URL_POSTS);
+
+        setUpFirebaseQuery();
+        setUpRecyclerView();
+
     }
 
+    private void setUpFirebaseQuery(){
+        String post = mFirebasePostRef.toString();
+        mQuery =  new Firebase(post);
+    }
 
-    ViewPostsActivity.this.runOnUiThread(new Runnable() {
-        public void run(){
-            mAdapter = new PostListAdapter(getApplicationContext(), mPosts);
-            mRecyclerView.setAdapter(mAdapter);
-            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ViewPostsActivity.this);
-            mRecyclerView.setLayoutManager(layoutManager);
-            mRecyclerView.setHasFixedSize(true);
-
-        }
+    private void setUpRecyclerView(){
+        mAdapter = new FirebasePostListAdapter(mQuery, Post.class);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setAdapter(mAdapter);
     }
 }

@@ -19,7 +19,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.ViewPostsActivity" />
-        <activity android:name=".ui.NewPostActivity"></activity>
+        <activity android:name=".ui.NewPostActivity" />
+        <activity android:name=".ui.SavedPostActivity" />
+        <activity android:name=".ui.PostDetailActivity"></activity>
     </application>
 
 </manifest>

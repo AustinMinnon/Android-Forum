@@ -9,8 +9,8 @@ import com.epicodus.discussionforum.models.Post;
 import com.epicodus.discussionforum.util.FirebaseRecyclerAdapter;
 import com.firebase.client.Query;
 
-public class FirebaseRestaurantListAdapter extends FirebaseRecyclerAdapter<PostViewHolder, Post> {
-    public FirebaseRestaurantListAdapter(Query query, Class<Post> itemClass) {
+public class FirebasePostListAdapter extends FirebaseRecyclerAdapter<PostViewHolder, Post> {
+    public FirebasePostListAdapter(Query query, Class<Post> itemClass) {
         super(query, itemClass);
     }
     @Override
