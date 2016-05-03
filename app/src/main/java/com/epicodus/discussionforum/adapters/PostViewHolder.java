@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.epicodus.discussionforum.R;
 import com.epicodus.discussionforum.models.Post;
+import com.epicodus.discussionforum.ui.PostDetailActivity;
 //import com.epicodus.discussionforum.ui.PostDetailActivity;
 
 import org.parceler.Parcels;
@@ -30,16 +31,16 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
         ButterKnife.bind(this, itemView);
         mContext = itemView.getContext();
         mPosts = posts;
-//        itemView.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v){
-//                int itemPosition = getLayoutPosition();
-//                Intent intent = new Intent(mContext, PostDetailActivity.class);
-//                intent.putExtra("position", itemPosition + "");
-//                intent.putExtra("posts", Parcels.wrap(mPosts));
-//                mContext.startActivity(intent);
-//            }
-//        });
+        itemView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                int itemPosition = getLayoutPosition();
+                Intent intent = new Intent(mContext, PostDetailActivity.class);
+                intent.putExtra("position", itemPosition + "");
+                intent.putExtra("posts", Parcels.wrap(mPosts));
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     public void bindPost(Post post) {

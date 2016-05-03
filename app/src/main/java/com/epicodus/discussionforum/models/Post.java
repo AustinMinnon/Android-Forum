@@ -1,13 +1,14 @@
 package com.epicodus.discussionforum.models;
 
-//import org.parceler.Parcel;
+import org.parceler.Parcel;
 
+@Parcel
 public class Post {
         String title;
         String author;
         String body;
 
-            public Post() {}
+    public Post() {}
 
     public Post(String title, String author, String body) {
         this.title = title;

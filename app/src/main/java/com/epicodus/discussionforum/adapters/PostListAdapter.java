@@ -1,20 +1,20 @@
-package com.epicodus.discussionforum.adapters;
-
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.support.v7.widget.RecyclerView;
-import android.widget.TextView;
-
-import com.epicodus.discussionforum.R;
-import com.epicodus.discussionforum.models.Post;
-
-import java.util.ArrayList;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
-
+//package com.epicodus.discussionforum.adapters;
+//
+//import android.content.Context;
+//import android.view.LayoutInflater;
+//import android.view.View;
+//import android.view.ViewGroup;
+//import android.support.v7.widget.RecyclerView;
+//import android.widget.TextView;
+//
+//import com.epicodus.discussionforum.R;
+//import com.epicodus.discussionforum.models.Post;
+//
+//import java.util.ArrayList;
+//
+//import butterknife.Bind;
+//import butterknife.ButterKnife;
+//
 //public class PostListAdapter extends RecyclerView.Adapter<PostListAdapter.PostViewHolder>{
 //    private ArrayList<Post> mPosts = new ArrayList<>();
 //    private Context mContext;
