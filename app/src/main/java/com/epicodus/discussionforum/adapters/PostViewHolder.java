@@ -9,7 +9,6 @@ import android.widget.TextView;
 import com.epicodus.discussionforum.R;
 import com.epicodus.discussionforum.models.Post;
 import com.epicodus.discussionforum.ui.PostDetailActivity;
-//import com.epicodus.discussionforum.ui.PostDetailActivity;
 
 import org.parceler.Parcels;
 
@@ -21,7 +20,7 @@ import butterknife.ButterKnife;
 public class PostViewHolder extends RecyclerView.ViewHolder {
     @Bind(R.id.titleTextView) TextView mTitleTextView;
     @Bind(R.id.authorTextView) TextView mAuthorTextView;
-//    @Bind(R.id.bodyTextView) TextView mBodyTextView;
+    @Bind(R.id.categoryTextView) TextView mCategoryTextView;
 
     private Context mContext;
     private ArrayList<Post> mPosts = new ArrayList<>();
@@ -47,6 +46,7 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
 
         mTitleTextView.setText(post.getTitle());
         mAuthorTextView.setText(post.getAuthor());
+        mCategoryTextView.setText(post.getCategory());
 //        mBodyTextView.setText(post.getAuthor());
     }
 }

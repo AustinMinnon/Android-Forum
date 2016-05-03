@@ -21,6 +21,7 @@ public class PostDetailFragment extends Fragment {
     @Bind(R.id.titleTextView) TextView mTitleTextView;
     @Bind(R.id.authorTextView) TextView mAuthorTextView;
     @Bind(R.id.bodyTextView) TextView mBodyTextView;
+    @Bind(R.id.categoryTextView) TextView mCategoryTextView;
 
     private Post mPost;
 
@@ -46,6 +47,7 @@ public class PostDetailFragment extends Fragment {
         mAuthorTextView.setText(mPost.getAuthor());
         mBodyTextView.setText(mPost.getBody());
         mTitleTextView.setText(mPost.getTitle());
+        mCategoryTextView.setText(mPost.getCategory());
         return view;
     }
 }
